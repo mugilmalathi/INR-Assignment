@@ -6,12 +6,16 @@ function App() {
 
   const [ticket, setTicket] = useState("")
   const [num, setNum] = useState([])
-
+  
   const ticketcreation = (e)=>{
-   const val = e.target.value;
-   if(ticket.length<=5) setTicket(ticket+val)
-   else alert("Can't add more than 6 numbers..!")
-    console.log(ticket);
+  //  const val = e.target.value;
+   setNum(e.target.value)
+   if(ticket.length<=5) {
+    setTicket(ticket+num)
+   }
+   else{
+    alert("Can't add more than 6 numbers..!")
+   }
   }
 
   const handleClick = (e)=>{
@@ -24,8 +28,6 @@ function App() {
 
   const randomTicket =()=>{
     setTicket(Math.floor((Math.random()*1000000)+6))
-    console.log(ticket);
-    
   }
 
  return (
@@ -48,7 +50,7 @@ function App() {
           <button value="6" onClick={ticketcreation}>6</button>
           <button value="1" onClick={ticketcreation}>1</button>
           <button value="2" onClick={ticketcreation}>2</button>
-          <button value="2" onClick={ticketcreation}>3</button>
+          <button value="3" onClick={ticketcreation}>3</button>
           <button onClick={handleErase}>erc</button>
           <button value="0" onClick={ticketcreation}>0</button>
           <button>del</button>
