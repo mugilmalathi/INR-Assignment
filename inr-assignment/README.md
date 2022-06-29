@@ -5,3 +5,7 @@
 -Random Ticket implemented by clicking the wheel
 
 -Erase values by clicking ers button
+
+
+SnapShot:
+![](/Images/task.png)
