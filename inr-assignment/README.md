@@ -8,4 +8,4 @@
 
 
 SnapShot:
-![](/Images/task.png)
+![](/inr-assignment/Images/task.png)
