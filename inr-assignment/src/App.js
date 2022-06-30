@@ -9,19 +9,28 @@ function App() {
 
   const ticketcreation = (e)=>{
    const val = e.target.value;
-   if(ticket.length<=5) setTicket(ticket+val)
-   else alert("Can't add more than 6 numbers..!")
+   if(ticket.length<=5){
+    setTicket(ticket+val)
+   }
+   else{
+    alert("Can't add more than 6 numbers..!")
+   } 
   }
 
   const handleClick = ()=>{
-    setNum([...num, {
-      id: num.length + Date.now(),
-      value: ticket
-    }])  
-    if(num.length == 4){
-      alert("You have only one ticket to go..!")
-    }  
-    handleErase()
+
+    if(ticket != ""){
+      setNum([...num, {
+        id: num.length + Date.now(),
+        value: ticket
+      }])  
+      if(num.length == 4){
+        alert("You have only one ticket to go..!")
+      }  
+      handleErase()
+    }else{
+      alert("Please enter valid Number")
+    }
   }
 
   const handleErase=()=>{
