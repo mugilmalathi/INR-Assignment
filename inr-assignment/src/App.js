@@ -6,21 +6,24 @@ function App() {
 
   const [ticket, setTicket] = useState("")
   const [num, setNum] = useState([])
-  
+
   const ticketcreation = (e)=>{
-  //  const val = e.target.value;
-   setNum(e.target.value)
-   if(ticket.length<=5) {
-    setTicket(ticket+num)
-   }
-   else{
-    alert("Can't add more than 6 numbers..!")
-   }
+   const val = e.target.value;
+   if(ticket.length<=5) setTicket(ticket+val)
+   else alert("Can't add more than 6 numbers..!")
   }
 
-  const handleClick = (e)=>{
-    setNum(...num, ticket)
+  const handleClick = ()=>{
+    setNum([...num, {
+      id: num.length + Date.now(),
+      value: ticket
+    }])  
+    if(num.length == 4){
+      alert("You have only one ticket to go..!")
+    }  
   }
+  // console.log(num);
+  
 
   const handleErase=()=>{
     setTicket("")
@@ -28,6 +31,13 @@ function App() {
 
   const randomTicket =()=>{
     setTicket(Math.floor((Math.random()*1000000)+6))
+    
+  }
+
+  const handleDelete=(id)=>{
+
+    const deleteData = num.filter((e)=>e.id !== id)
+    setNum(deleteData) 
   }
 
  return (
@@ -50,14 +60,14 @@ function App() {
           <button value="6" onClick={ticketcreation}>6</button>
           <button value="1" onClick={ticketcreation}>1</button>
           <button value="2" onClick={ticketcreation}>2</button>
-          <button value="3" onClick={ticketcreation}>3</button>
+          <button value="2" onClick={ticketcreation}>3</button>
           <button onClick={handleErase}>erc</button>
           <button value="0" onClick={ticketcreation}>0</button>
           <button>del</button>
         </div>
 
         <div id='left3'>
-          <button onClick={handleClick}>ADD TICKET</button>
+          <button disabled={num.length==5} onClick={handleClick}>ADD TICKET</button>
         </div>
 
       </div>
@@ -69,8 +79,18 @@ function App() {
      <div id='down'>
      <h4>Your Selected Tickets</h4>
       <div id='ticket'>
-       <div>{ticket}</div>
-       <div>X</div>
+      {
+        num.map((e)=>{
+          return(
+            <div key={e.id}>
+              <div id='show'>{e.value}</div>
+              <div id='del' onClick={()=>{
+                handleDelete(e.id)
+              }}>X</div>
+            </div>
+          )
+        })
+      }
       </div>
      </div>
 

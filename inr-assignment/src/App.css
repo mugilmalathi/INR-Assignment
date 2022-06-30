@@ -97,11 +97,10 @@
 #ticket{
   width: 100%;
   height: 200px;
-  display: flex;
-  gap: 30px;
-  justify-content: space-around-left;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
-#ticket>div:nth-child(1){
+#show{
   width: 200px;
   height: 50px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
@@ -115,7 +114,7 @@
   box-sizing: border-box;
   border-radius: 5px;
 }
-#ticket>div:nth-child(2){
+#del{
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -124,6 +123,7 @@
   padding-left: 10px;
   padding-top: 2px;
   color: white;
-  margin-left: -70px;
-  margin-top: 10px;
+  margin-left: 200px;
+  margin-top: -80px;
+  cursor: pointer;
 }
