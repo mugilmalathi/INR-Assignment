@@ -21,9 +21,8 @@ function App() {
     if(num.length == 4){
       alert("You have only one ticket to go..!")
     }  
+    handleErase()
   }
-  // console.log(num);
-  
 
   const handleErase=()=>{
     setTicket("")
